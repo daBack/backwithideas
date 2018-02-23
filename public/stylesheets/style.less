@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400|Quicksand:300');
+/* ====================================================
+    Variables
+   ====================================================*/
+@black: #0D0D0D;
+@white: #f7f7f7;
+@contrast: #9e5c35;
+
+* {
+    padding: 0;
+    margin: 0;
+}
+body {
+    height: 100%;
+}
+/* ====================================================
+    GENERAL STYLING
+   ====================================================*/
+.outer-wrapper {
+    min-height: 100%;
+    width: 100%;
+}
+.inner-wrapper {
+    background-color: @black;
+}
+
+/* ====================================================
+    START SITE
+   ====================================================*/
+.start-image {
+    display: flex;
+    background: url(../img/meblackbkg.gif) no-repeat center center fixed;
+    height: 100vh;
+    background-size: cover;
+
+    .head-content{
+        display: flex;
+        flex-direction: column;
+        // flex: 1;
+        justify-content: center;
+        margin-right: auto;
+        padding: 60px;
+        width: 40%;
+        // margin-top: 10%;
+        // margin-left: 8%;
+
+        .head-title{
+            // border: 3px solid #f7f7f7;
+            // border-radius: 5px;
+            display: flex;
+            padding: 30px;
+            flex-direction: column;
+            align-items: flex-start;
+            max-width: 600px;
+            animation: 1s ease-out title;
+            margin: 0 auto;
+
+            article {
+                display: flex;
+                justify-content: center;
+                font-size: 1.2em;
+                font-family: 'Open sans', sans-serif;
+                color: @white;
+                font-weight: 300;
+                // max-width: 50%;
+                padding-top: 30px;
+            }
+        }
+        .head-title h1 {
+            font-size: 6em;
+            text-transform: uppercase;
+            font-family: "Open sans", serif;
+            color: @white;
+            font-weight: 300;
+        }
+        .head-title h3 {
+            font-size: 1.5em;
+            color: @contrast;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        nav {
+            display: flex;
+            // margin: 0 auto;
+            display: row;
+            border-bottom: 5px solid #ececec;
+            margin-top: 20px;
+            color: @white;
+            animation: 1s ease-out title;
+
+            a {
+                padding: 10px 30px;
+                margin: 20px 0 -5px 0;
+                color: @white;
+                font-family: "Open sans", serif;
+                text-decoration: none;
+                border-bottom: 5px solid @white;
+                transition: 0.3s;
+            }
+            a:hover {
+                // background-color: #ececec;
+                border-bottom: 5px solid @contrast;
+                color: @contrast;
+            }
+        }
+    }
+}
+
+/* ====================================================
+    Gallery route
+   ====================================================*/
+.images-wrapper {
+    min-height: 100vh;
+    background-color: @black;
+    margin: auto;
+    display: flex;
+    width: 90%;
+
+    .react-photo-gallery--gallery {
+        margin-top: 5%;
+    }
+    .react-photo-gallery--gallery:hover img:not(:hover){
+            opacity: 0.4;
+    }
+
+    img {
+        border: 3px solid @white;
+        transition: 0.2s;
+    }
+    img:hover {
+        transform: scale(1.01, 1.01);
+    }
+}
+images-wrapper { /* Masonry container */
+    column-count: 4;
+    column-gap: 1em;
+}
+
+.image-self { /* Masonry bricks or child elements */
+    background-color: #eee;
+    display: inline-block;
+    margin: 0 0 1em;
+    width: 100%;
+}
+
+/* ====================================================
+    ================                 Animation                  ===============
+   ====================================================*/
+
+@keyframes title {
+    0% {
+        opacity: 0;
+        transform: translateY(-30%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+
+}
+
+@keyframes qm {
+    from {
+        // transform: translate(0, 10px);
+    }
+    to {
+        transform: translate(0, -10px);
+    }
+}
